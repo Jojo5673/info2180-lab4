@@ -3,7 +3,7 @@ $(document).ready(() => {
         e.preventDefault();
         let input = e.target[0];
         let query = input.value.trim();
-        const res = await fetch(`http://localhost/info2180-lab4/superheroes.php?query=${query}`);
+        const res = await fetch(`superheroes.php?query=${query}`);
         const text = await res.text();
         console.log(text)
         $("#result").html(text);
