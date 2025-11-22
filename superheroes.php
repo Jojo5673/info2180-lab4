@@ -62,11 +62,17 @@ $superheroes = [
       "biography" => "Notably powerful, Wanda Maximoff has fought both against and with the Avengers, attempting to hone her abilities and do what she believes is right to help the world.",
   ], 
 ];
-
 ?>
 
 <ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
+<?php
+    $query = $_GET['query'];
+    $query = strip_tags($query);
+    
+    foreach ($superheroes as $superhero):
+        if (str_contains($superhero['alias'], $query) || str_contains($superhero['name'], $query)):
+            ?>
+            <li><?= $superhero['alias']; ?></li>
+        <?php endif;
+    endforeach; ?>
 </ul>
